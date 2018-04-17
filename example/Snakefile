@@ -35,15 +35,15 @@ rule download_reference :
 	input : datadir + '/MD5SUM'
 	output : datadir + '/genome.fasta.gz'
 	shell : '''
-   wget --quiet -O {output} ftp://ftp.ncbi.nlm.nih.gov/1000genomes/ftp/technical/reference/human_g1k_v37.fasta.gz
-        '''
+   wget -O {output} ftp://ftp.ncbi.nlm.nih.gov/1000genomes/ftp/technical/reference/human_g1k_v37.fasta.gz
+	'''
 
 rule uncompress_reference :
 	input : datadir + '/genome.fasta.gz'
 	output : datadir + '/genome.fasta'
 	shell : '''
    gunzip -k {output}.gz || /bin/true
-        '''
+	'''
 
 rule transfer_file :
 	input : '{file}'
