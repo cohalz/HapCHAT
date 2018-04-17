@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
 
 VOLUME ["/data"]
 
-RUN git clone https://github.com/AlgoLab/HapCHAT.git && \
+RUN git clone https://github.com/cohalz/HapCHAT.git && \
     cd HapCHAT && \
     ./setup.sh
 
